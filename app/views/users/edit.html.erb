@@ -1,6 +1,71 @@
 <div class="panel panel-default col-sm-10 form-horizontal" >
   <div class="panel-heading">ProFile Edit</div>
-    <% #部分テンプレートを読み込んでいる %>
-    <%= render 'form' %>
+  <div class="form-horizontal" role="form">
+  <%= form_for(@user) do |f| %>
+  
+      <% if @user.errors.present? %>
+        <div class="alert alert-danger">
+          <%= alert %>
+          <ul>
+            <% @user.errors.full_messages.each do |full_message| %>
+              <li>
+                <%= full_message %>
+              </li>
+            <% end %> 
+          </ul>
+        </div>
+      <% end %>
+      <br>
+      <div class="form-group">
+          <label for="InputName" class="col-sm-2 control-label">name：</label>
+          <div class="col-sm-4">
+            <%= f.text_field :name, :class => "form-control", :placeholder => "名前を入力してください。" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="InputEMail" class="col-sm-2 control-label">email：</label>
+          <div class="col-sm-4">
+            <%= f.text_field :email, :class => "form-control", :placeholder => "メールアドレスを入力してください。" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="InputPassword" class="col-sm-2 control-label">password：</label>
+          <div class="col-sm-4">  
+            <%= f.password_field :password, :class => "form-control", :placeholder => "パスワードを入力してください。" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="Inputpassword_confirmation" class="col-sm-2 control-label">Confirmation：</label>
+          <div class="col-sm-4">
+            <%= f.password_field :password_confirmation, :class => "form-control", :placeholder => "パスワード再度入力してください。" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="InputAge" class="col-sm-2 control-label">Age：</label>
+          <div class="col-sm-2">
+            <%= f.number_field :age, :class => "form-control", :placeholder => "年齢" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="InputProfile" class="col-sm-2 control-label">Profile：</label>
+          <div class="col-sm-4">
+            <%= f.text_field :profile_name, :class => "form-control", :placeholder => "プロファイル" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <label for="InputArea" class="col-sm-2 control-label">Area：</label>
+          <div class="col-sm-4">
+            <%= f.text_field :area, :class => "form-control", :placeholder => "地域" %>
+          </div>    
+      </div>
+      <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-2"> 
+              <%= f.submit class: "btn btn-sm btn-primary" %> 
+          </div>
+      </div>
+   <% end %>
+</div>
+
+
 </div>
 
