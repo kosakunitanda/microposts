@@ -1,4 +1,15 @@
+<!-- 
+<%= @user.inspect %>
+-->
+
 <h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %>
+  <p>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </p>
+  
+  <p><%= @user.email %></p>
+  <P><%= @user.age %></P>
+  <p><%= @user.profile_name %></p>
+  <p><%= @user.area %></p>
 </h1>
