@@ -3,10 +3,13 @@
 -->
 
 <h1>
-  <%= gravatar_for @user %>
-  <%= @user.name %><br>
-  <%= @user.email %><br>
-  <%= @user.age %><br>
-  <%= @user.profile_name %><br>
-  <%= @user.area %><br>
+  <p>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </p>
+  
+  <p><%= @user.email %></p>
+  <P><%= @user.age %> 歳</P>
+  <p><%= @user.profile_name %></p>
+  <p><%= @user.area %></p>
 </h1>
