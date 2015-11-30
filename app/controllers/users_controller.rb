@@ -1,9 +1,20 @@
 class UsersController < ApplicationController
- 
+  def followings
+    @title = "followings"
+    @user = User.find(params[:id])
+    @users = @user.following_users
+    
+  end
+  def followers
+    @title = "followers"
+    @user = User.find(params[:id])
+    @users = @user.follower_users
+    render 'followings'
+  end
   
   def show # 追加
    @user = User.find(params[:id])
-    @microposts = @user.microposts
+   @microposts = @user.microposts
   end
   
   def new

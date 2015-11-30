@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
   has_many :microposts
   
+  
+
   # 他のユーザーをフォローする
   def follow(other_user)
     following_relationships.find_or_create_by(followed_id: other_user.id)
