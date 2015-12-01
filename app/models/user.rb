@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   has_many :microposts
   
   
-
+  def feed_items
+    Micropost.where(user_id: following_user_ids + [self.id])
+  end
   # 他のユーザーをフォローする
   def follow(other_user)
     following_relationships.find_or_create_by(followed_id: other_user.id)

@@ -14,22 +14,7 @@ class UsersController < ApplicationController
     render 'followings'
   end
 
-  # 他のユーザーをフォローする
-  def follow(other_user)
-    following_relationships.find_or_create_by(followed_id: other_user.id)
-  end
 
-  # フォローしているユーザーをアンフォローする
-  def unfollow(other_user)
-    following_relationship = following_relationships.find_by(followed_id: other_user.id)
-    following_relationship.destroy if following_relationship
-  end
-
-  # あるユーザーをフォローしているかどうか？
-  def following?(other_user)
-    following_users.include?(other_user)
-  end  
-  
   def show # 追加
    @user = User.find(params[:id])
    @microposts = @user.microposts
