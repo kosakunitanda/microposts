@@ -1,11 +1,22 @@
 <h1><%= @title %></h1>
-<% @users.each do |user| %>
 
-<ul class="list-unstyled">
+<!-- 追加箇所開始 -->
+<%= page_entries_info @users %>
+<!-- 追加箇所終了 -->
+<% @users.each do |user| %>
   <li>
     <%= link_to gravatar_for(user, size: 50), user %>
     <span class="user"><%= link_to user.name, user %></span><br>
     <span class="user"><%= link_to user.email, user %></span><br>
+     <span class="timestamp">
+      Posted <%= time_ago_in_words(user.created_at) %> ago.
+    </span><br>
   </li>
-</ul>
+  
+  
 <% end %>
+
+
+<!-- 追加箇所開始 -->
+<%= paginate @users %>
+<!-- 追加箇所終了 -->
