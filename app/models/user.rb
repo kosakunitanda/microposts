@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :microposts
   
   
+  paginates_per 2  # 1ページあたり2項目表示
+   
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
   end

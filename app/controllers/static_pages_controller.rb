@@ -7,9 +7,10 @@ class StaticPagesController < ApplicationController
     end
   end
   def about
-
   end
   
-  
-  
+  def userlist
+      @users = User.all
+      @users = User.page(params[:page])
+  end
 end
