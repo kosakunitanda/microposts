@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   has_many :microposts
   
   
-  paginates_per 2  # 1ページあたり2項目表示
    
   def feed_items
     Micropost.where(user_id: following_user_ids + [self.id])
@@ -56,5 +55,8 @@ class User < ActiveRecord::Base
                                     foreign_key: "followed_id",
                                     dependent:   :destroy
   has_many :follower_users, through: :follower_relationships, source: :follower
+  
+  paginates_per 2  # 1ページあたり2項目表示
+
   
 end

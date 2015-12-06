@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @title = "followings"
     @user = User.find(params[:id])
     @users = @user.following_users
-    @users = User.page(params[:page])
+    @follows = @users.page(params[:page])
     
   end
 
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @title = "followers"
     @user = User.find(params[:id])
     @users = @user.follower_users
-    @users = User.page(params[:page])
+    @follows = @users.page(params[:page])
     render 'followings'
   end
 
